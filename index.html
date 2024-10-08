@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Footprints</title>
+  <meta name="description" content="Footprints is a simple, open source web app for analyzing your carbon footprints.">
+  <link rel="stylesheet" href="/src/style.css">
+</head>
+
+<body>
+  <header class="header">
+    <h1>Footprints</h1>
+  </header>
+  <main class="container">
+    <form class="form">
+      <label for="travelFrequency">How often do you travel in a week?</label>
+      <input type="number" id="travelFrequency" name="travelFrequency" min="0" max="7" required />
+
+      <label for="transportMode">What's your medium of transportation?</label>
+      <select id="transportMode" name="transportMode" required>
+        <option value="car">Car</option>
+        <option value="bus">Bus</option>
+        <option value="bike">Bike</option>
+        <option value="walk">Walk</option>
+      </select>
+
+      <label for="kilometers">How many kilometers do you travel?</label>
+      <input type="number" id="kilometers" name="kilometers" min="0" required />
+
+      <label for="treesPlanted">How many trees have you planted?</label>
+      <input type="number" id="treesPlanted" name="treesPlanted" min="0" required />
+
+      <label for="meatConsumption">Do you consume meat and how often?</label>
+      <select id="meatConsumption" name="meatConsumption" required>
+        <option value="never">Never</option>
+        <option value="rarely">Rarely</option>
+        <option value="often">Often</option>
+      </select>
+
+      <button class="button" type="submit">Submit</button>
+    </form>
+  </main>
+
+  <dialog class="dialog">
+    <img src="/footprints.png" alt="Footprints Output" id="dialog-image">
+    <p id="dialog-message"></p>
+    <button class="button" id="dialog-close" onclick="this.parentElement.close()">Close</button>
+  </dialog>
+
+  <script type="module" src="/src/main.ts"></script>
+</body>
+
+</html>
