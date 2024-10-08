@@ -1,0 +1,28 @@
+{
+  "footprints": "Footprints",
+  "form": {
+    "question1": "How often do you travel in a week?",
+    "question2": {
+      "question": "What's your medium of transportation?",
+      "option1": "Car",
+      "option2": "Bus",
+      "option3": "Bike",
+      "option4": "Walk"
+    },
+    "question3": "How many kilometers do you travel?",
+    "question4": "How many trees have you planted?",
+    "question5": {
+      "question": "Do you consume meat?",
+      "option1": "Never",
+      "option2": "Rarely",
+      "option3": "Often"
+    }
+  },
+  "message": {
+    "silver": "Silver Footprint. The most clean footprint.",
+    "grey": "Grey Footprint. The moderate footprint.",
+    "black": "Sorry! You have dirtiest footprint. Perfect Black Footprint."
+  },
+  "submit": "Submit",
+  "close": "Close"
+}

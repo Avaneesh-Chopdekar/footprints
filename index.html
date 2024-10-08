@@ -16,35 +16,39 @@
 
 <body>
   <header class="header">
-    <h1>Footprints</h1>
+    <h1 id="footprints">Footprints</h1>
+    <select name="language" id="language">
+      <option value="en" id="en">English</option>
+      <option value="mr" id="mr">मराठी</option>
+    </select>
   </header>
   <main class="container">
     <form class="form">
-      <label for="travelFrequency">How often do you travel in a week?</label>
+      <label for="travelFrequency" id="travelFrequencyLabel">How often do you travel in a week?</label>
       <input type="number" id="travelFrequency" name="travelFrequency" min="0" max="7" required />
 
-      <label for="transportMode">What's your medium of transportation?</label>
+      <label for="transportMode" id="transportModeLabel">What's your medium of transportation?</label>
       <select id="transportMode" name="transportMode" required>
-        <option value="car">Car</option>
-        <option value="bus">Bus</option>
-        <option value="bike">Bike</option>
-        <option value="walk">Walk</option>
+        <option value="car" id="transportMode-car">Car</option>
+        <option value="bus" id="transportMode-bus">Bus</option>
+        <option value="bike" id="transportMode-bike">Bike</option>
+        <option value="walk" id="transportMode-walk">Walk</option>
       </select>
 
-      <label for="kilometers">How many kilometers do you travel?</label>
+      <label for="kilometers" id="kilometersLabel">How many kilometers do you travel?</label>
       <input type="number" id="kilometers" name="kilometers" min="0" required />
 
-      <label for="treesPlanted">How many trees have you planted?</label>
+      <label for="treesPlanted" id="treesPlantedLabel">How many trees have you planted?</label>
       <input type="number" id="treesPlanted" name="treesPlanted" min="0" required />
 
-      <label for="meatConsumption">Do you consume meat and how often?</label>
+      <label for="meatConsumption" id="meatConsumptionLabel">Do you consume meat and how often?</label>
       <select id="meatConsumption" name="meatConsumption" required>
-        <option value="never">Never</option>
-        <option value="rarely">Rarely</option>
-        <option value="often">Often</option>
+        <option value="never" id="meatConsumption-never">Never</option>
+        <option value="rarely" id="meatConsumption-rarely">Rarely</option>
+        <option value="often" id="meatConsumption-often">Often</option>
       </select>
 
-      <button class="button" type="submit">Submit</button>
+      <button class="button" type="submit" id="submit">Submit</button>
     </form>
   </main>
 

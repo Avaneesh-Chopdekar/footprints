@@ -1,3 +1,5 @@
+import i18next from "i18next";
+
 import {
   CalculateFootprintParamsType,
   CalculateFootprintReturnType,
@@ -18,16 +20,16 @@ export function calculateFootprint({
 
   // Medium of transportation (Max contribution: 30 points)
   switch (transportation) {
-    case "car":
+    case i18next.t("form.question2.option1"):
       score += 30; // Cars have the highest emissions
       break;
-    case "bus":
+    case i18next.t("form.question2.option2"):
       score += 20; // Buses have moderate emissions
       break;
-    case "bike":
+    case i18next.t("form.question2.option3"):
       score += 5; // Bikes have low emissions
       break;
-    case "walk":
+    case i18next.t("form.question2.option4"):
       score += 0; // Walking has minimal emissions
       break;
   }
@@ -38,13 +40,13 @@ export function calculateFootprint({
 
   // Meat consumption (Max contribution: 30 points)
   switch (meatConsumption) {
-    case "never":
+    case i18next.t("form.question5.option1"):
       score += 0; // Vegetarians have the lowest footprint
       break;
-    case "rarely":
+    case i18next.t("form.question5.option1"):
       score += 15; // Moderate meat consumption
       break;
-    case "often":
+    case i18next.t("form.question5.option1"):
       score += 30; // High meat consumption
       break;
   }
@@ -54,15 +56,54 @@ export function calculateFootprint({
 
   if (score <= 33) {
     score = 0;
-    message = "Silver Footprint. The most clean footprint.";
+    message = i18next.t("message.silver");
   } else if (score <= 66) {
-    message = "Grey Footprint. The moderate footprint.";
+    message = i18next.t("message.grey");
   } else {
     score = 100;
-    message = "Sorry! You have dirtiest footprint. Perfect Black Footprint.";
+    message = i18next.t("message.black");
   }
 
   score = 100 - score;
 
   return { score, message };
+}
+
+export function updateContent() {
+  document.getElementById("footprints")!.innerText = i18next.t("footprints");
+  document.getElementById("travelFrequencyLabel")!.innerText =
+    i18next.t("form.question1");
+  document.getElementById("transportModeLabel")!.innerText = i18next.t(
+    "form.question2.question"
+  );
+  document.getElementById("transportMode-car")!.innerText = i18next.t(
+    "form.question2.option1"
+  );
+  document.getElementById("transportMode-bus")!.innerText = i18next.t(
+    "form.question2.option2"
+  );
+  document.getElementById("transportMode-bike")!.innerText = i18next.t(
+    "form.question2.option3"
+  );
+  document.getElementById("transportMode-walk")!.innerText = i18next.t(
+    "form.question2.option4"
+  );
+  document.getElementById("kilometersLabel")!.innerText =
+    i18next.t("form.question3");
+  document.getElementById("treesPlantedLabel")!.innerText =
+    i18next.t("form.question4");
+  document.getElementById("meatConsumptionLabel")!.innerText = i18next.t(
+    "form.question5.question"
+  );
+  document.getElementById("meatConsumption-never")!.innerText = i18next.t(
+    "form.question5.option1"
+  );
+  document.getElementById("meatConsumption-rarely")!.innerText = i18next.t(
+    "form.question5.option2"
+  );
+  document.getElementById("meatConsumption-often")!.innerText = i18next.t(
+    "form.question5.option3"
+  );
+  document.getElementById("submit")!.innerText = i18next.t("submit");
+  document.getElementById("dialog-close")!.innerText = i18next.t("close");
 }
