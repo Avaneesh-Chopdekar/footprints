@@ -13,23 +13,25 @@ export function calculateFootprint({
   meatConsumption,
 }: CalculateFootprintParamsType): CalculateFootprintReturnType {
   let score = 0;
-  let message = "Sorry! You have dirtiest footprint. Perfect Black Footprint.";
+  let message = i18next.t("message.black");
 
   const travelScore = Math.min((travelFrequency * travelDistance) / 10, 40);
   score += travelScore;
 
   // Medium of transportation (Max contribution: 30 points)
   switch (transportation) {
-    case i18next.t("form.question2.option1"):
+    case document.querySelector<HTMLOptionElement>("#transportMode-car")!.value:
       score += 30; // Cars have the highest emissions
       break;
-    case i18next.t("form.question2.option2"):
+    case document.querySelector<HTMLOptionElement>("#transportMode-bus")!.value:
       score += 20; // Buses have moderate emissions
       break;
-    case i18next.t("form.question2.option3"):
+    case document.querySelector<HTMLOptionElement>("#transportMode-bike")!
+      .value:
       score += 5; // Bikes have low emissions
       break;
-    case i18next.t("form.question2.option4"):
+    case document.querySelector<HTMLOptionElement>("#transportMode-walk")!
+      .value:
       score += 0; // Walking has minimal emissions
       break;
   }
@@ -40,13 +42,16 @@ export function calculateFootprint({
 
   // Meat consumption (Max contribution: 30 points)
   switch (meatConsumption) {
-    case i18next.t("form.question5.option1"):
+    case document.querySelector<HTMLOptionElement>("#meatConsumption-never")!
+      .value:
       score += 0; // Vegetarians have the lowest footprint
       break;
-    case i18next.t("form.question5.option1"):
+    case document.querySelector<HTMLOptionElement>("#meatConsumption-rarely")!
+      .value:
       score += 15; // Moderate meat consumption
       break;
-    case i18next.t("form.question5.option1"):
+    case document.querySelector<HTMLOptionElement>("#meatConsumption-often")!
+      .value:
       score += 30; // High meat consumption
       break;
   }
