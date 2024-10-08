@@ -10,6 +10,7 @@
 }
 
 html {
+  font-size: 20px;
   color-scheme: dark light;
 }
 
@@ -47,6 +48,10 @@ body {
   cursor: pointer;
   border-radius: 0.25rem;
   letter-spacing: 0.05rem;
+}
+
+#submit {
+  margin-top: 1rem;
 }
 
 .form {
@@ -91,6 +96,10 @@ body {
 }
 
 @media screen and (min-width: 640px) {
+  html {
+    font-size: 16px;
+  }
+
   .container {
     margin: 2rem auto;
     width: 50%;
